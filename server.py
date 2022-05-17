@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask('__main__')
 
@@ -13,14 +13,8 @@ def go_home():
 @app.route('/postmethod', methods=['POST'])
 def post_data():
     data= request.json
-    print(data)
+    #print(data)
     return data;
-
-#PATCH METHOD
-@app.route('/devices', methods=['PATCH'])
-def save_device():
-    device = request.json
-    return device
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
